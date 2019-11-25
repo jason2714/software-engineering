@@ -32,6 +32,7 @@
         background-color: rgba(242, 198, 146, 0.8);
         border-radius: 4px;
         margin-left: 2%;
+        cursor: pointer;
     }
     iframe {
         background-color: rgba(249, 226, 226, 0.8);
@@ -58,6 +59,7 @@
         align-self: center;
         border: 1px solid black;
         border-radius: 4px;
+        cursor: pointer;
     }
     .title {
         height: 50px;
