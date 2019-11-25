@@ -67,6 +67,8 @@ input {
 
 .item_right {
     float: right;
+    overflow: auto;
+    width: 55%;
 }
 
 .item_att {
@@ -83,7 +85,7 @@ label {
     border: 1px solid black;
 }
 
-label.des {
+label.info {
     width: 100%;
 }
 
@@ -108,11 +110,11 @@ label.des {
     font-size: 105%;
 }
 
-.att_des_str {
+.att_info_str {
     width: 97.5%;
     height: 80px;
     border: 1px solid black;
-    font-size: 105%;
+    font-size: 150%;
     resize: none;
 }
 
@@ -120,17 +122,25 @@ label.des {
     text-align: center;
     background-color: rgba(224, 183, 135, 0.8);
     border-radius: 4px;
-    height: 28px;
-    width: 25%;
+    height: 32px;
+    width: 27%;
     cursor: pointer;
 }
 
-.add_refresh {
+.item_add {
     cursor: pointer;
     text-align: center;
     float: right;
     background-color: rgba(224, 183, 135, 0.8);
     border-radius: 4px;
     height: 28px;
-    width: 40%;
+    width: 45%;
+}
+
+.item_type_search {
+    background-color: rgba(249, 156, 150);
+    width: 100%;
+    border: 1px solid black;
+    font-size: 105%;
+    height: 32px;
 }

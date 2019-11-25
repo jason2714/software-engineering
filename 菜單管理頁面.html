@@ -25,7 +25,7 @@
             <div class="item_left">
                 <div class="item_att">
                     <label>分類</label>
-                    <select id="type" class="att_type_str">
+                    <select id="item_type" class="att_type_str">
                         <!--div id="item_type"-->
                         <option value="sandwich">三明治</option>
                         <option value="drink">飲料</option>
@@ -35,33 +35,42 @@
                 <div class="blank"></div>
                 <div class="item_att">
                     <label>名稱</label>
-                    <input id="name" class="att_str" type="text">
+                    <input id="item_name" class="att_str" type="text">
                 </div>
                 <div class="blank"></div>
                 <div class="item_att">
                     <label>單價</label>
-                    <input id="cost" class="att_str" type="text">
+                    <input id="item_price" class="att_str" type="text">
                 </div>
                 <div class="blank"></div>
                 <div class="item_att">
                     <label>圖片</label>
-                    <input id="pic" class="att_pic_str" type="text">
-                    <input class="upload" id="upload" type=" button " value="上傳 ">
+                    <input id="item_picture" class="att_pic_str" type="text">
+                    <input class="upload" id="upload" type="button" value="上傳">
                 </div>
                 <div class="blank"></div>
                 <div class="item_att">
-                    <label class="des">說明</label>
-                    <textarea id="description" class="att_des_str"></textarea>
-                    <input class="add_refresh" id="add" type=" button" value="新增/更新">
+                    <label class="info">說明</label>
+                    <textarea id="item_info" class="att_info_str"></textarea>
+                    <input class="item_add" id="item_add" type="button" value="新增/更新">
                 </div>
             </div>
-            <div class="item_right "></div>
+            <div class="item_right ">
+                <table>
+                    <thead>
+                        <select id="ITS" class="item_type_search">
+                        </select>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <table>
 
-        <thead id="thead "></thead>
-        <tbody id="tbody "></tbody>
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
     </table>
 </body>
 
