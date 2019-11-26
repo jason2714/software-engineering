@@ -111,7 +111,7 @@ label.info {
 }
 
 .att_info_str {
-    width: 97.5%;
+    width: 99%;
     height: 80px;
     border: 1px solid black;
     font-size: 150%;
@@ -122,7 +122,7 @@ label.info {
     text-align: center;
     background-color: rgba(224, 183, 135, 0.8);
     border-radius: 4px;
-    height: 32px;
+    height: 30px;
     width: 27%;
     cursor: pointer;
 }
@@ -133,7 +133,7 @@ label.info {
     float: right;
     background-color: rgba(224, 183, 135, 0.8);
     border-radius: 4px;
-    height: 28px;
+    height: 30px;
     width: 45%;
 }
 
