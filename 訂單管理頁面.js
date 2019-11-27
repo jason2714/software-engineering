@@ -9,10 +9,11 @@ var thead, tbody;
 var mainmenu;
 var even = 0;
 var tdata;
+
 function start() {
+    importdata();
     thead = document.getElementById("thead");
     buildthead();
-    importdata();
     tbody = document.getElementById("tbody");
     buildtbody();
 }
@@ -40,6 +41,7 @@ function buildthead() {
 }
 
 function importdata() {
+    //let data = <?php echo json_encode($data,JSON_UNESCAPED_UNICODE); ?>;
     let importData = [
         ["未確認", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
         ["婉拒", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
@@ -48,6 +50,7 @@ function importdata() {
         ["已完成", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
         ["未確認", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"]
     ]
+
     return importData;
 }
 
@@ -64,8 +67,8 @@ function changeState(ev) {
             let li = document.createElement("li");
             if (parent.className != state_name[1][i]) {
                 li.setAttribute("class", "state");
-                li.addEventListener("click",changeState,false);
-                li.setAttribute("value",state_name[1][i])
+                li.addEventListener("click", changeState, false);
+                li.setAttribute("value", state_name[1][i])
                 li.textContent = state_name[0][i];
                 ul.appendChild(li);
             }
@@ -74,18 +77,14 @@ function changeState(ev) {
         ev.target.parentNode.appendChild(ul);
     } else {
         let parent = ev.target.parentNode.parentNode;
-        parent.parentNode.setAttribute("class",ev.target.getAttribute("value"));
-        parent.firstChild.textContent="["+ev.target.textContent+"]";
+        parent.parentNode.setAttribute("class", ev.target.getAttribute("value"));
+        parent.firstChild.textContent = "[" + ev.target.textContent + "]";
         parent.removeChild(ev.target.parentNode);
         return;
     }
 
     //parent.setAttribute("class", "rejected");
-   // console.log(parent.className);
-}
-
-function sort() {
-
+    // console.log(parent.className);
 }
 
 function buildtbody() {
@@ -93,7 +92,6 @@ function buildtbody() {
     tbody.setAttribute("style", "text-align:center;");
     for (let i in tdata) {
         let row = document.createElement("tr");
-        row.setAttribute("height", "25");
         for (let j in state_name[0])
             if (tdata[i][0] == state_name[0][j])
                 row.setAttribute("class", state_name[1][j]);
@@ -112,6 +110,7 @@ function buildtbody() {
                 col.textContent = tdata[i][j];
             row.appendChild(col);
         }
+        row.setAttribute("height", "25");
         row.setAttribute("id", tdata[i][1]);
         tbody.appendChild(row);
     }
