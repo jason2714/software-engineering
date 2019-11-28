@@ -9,12 +9,21 @@ var thead, tbody;
 var mainmenu;
 var even = 0;
 var tdata;
+var order_history;
+var time;
 
 function start() {
+    window.clearInterval(time);
+    time = window.setInterval("getHistory();", 10000);
     thead = document.getElementById("thead");
     buildthead();
     tbody = document.getElementById("tbody");
-    buildtbody();
+    document.getElementById("refresh").addEventListener("click", getHistory, false);
+    order_history = document.getElementById("order_history");
+    order_history.addEventListener("click", function() {
+        getHistory(1);
+    }, false);
+    getHistory();
 }
 
 function getString() {
@@ -39,27 +48,39 @@ function buildthead() {
     thead.appendChild(row);
 }
 
-function importdata() {
-    let importData = [
-        ["未確認", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
-        ["婉拒", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
-        ["已結帳", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
-        ["準備中", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
-        ["已完成", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"],
-        ["未確認", "19-10-05-029", "150", "11:32", "12:10", "傑森史塔森", "0975975176", "培根蛋餅"]
-    ];
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "getOrders.php", true);
-    xhr.send();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200)
-            console.log(xhr.response);
+function getHistory(check = 0, order_status = null, order_ID = null) {
+    console.log(order_status, order_ID);
+    let xhr = new XMLHttpRequest();
+    let send_data;
+    xhr.open("POST", "getOrders.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    if (check == 1) {
+        send_data = "order_history=" + order_history.value;
+        if (order_history.value == "歷史訂單") {
+            order_history.value = "現時訂單";
+        } else {
+            order_history.value = "歷史訂單";
+        }
+    } else {
+        if (order_history.value == "歷史訂單") {
+            send_data = "order_history=現時訂單";
+        } else {
+            send_data = "order_history=歷史訂單";
+        }
+        if (order_ID != null && order_ID != null)
+            send_data += "&order_status=" + order_status +
+            "&order_ID=" + order_ID;
     }
-    return importData;
+    xhr.send(send_data);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let importData = JSON.parse(xhr.response);
+            buildtbody(importData);
+        }
+    }
 }
 
 function changeState(ev) {
-    //console.log(ev.target);
     if (ev.target.tagName.toLowerCase() == "span") {
         if (ev.target.nextSibling) {
             ev.target.parentNode.removeChild(ev.target.nextSibling);
@@ -81,18 +102,20 @@ function changeState(ev) {
         ev.target.parentNode.appendChild(ul);
     } else {
         let parent = ev.target.parentNode.parentNode;
-        parent.parentNode.setAttribute("class", ev.target.getAttribute("value"));
-        parent.firstChild.textContent = "[" + ev.target.textContent + "]";
+        /* parent.parentNode.setAttribute("class", ev.target.getAttribute("value"));
+         parent.firstChild.textContent = "[" + ev.target.textContent + "]";*/
+
+        getHistory(0, ev.target.textContent, parent.parentNode.getAttribute("id"));
+        location.reload();
         parent.removeChild(ev.target.parentNode);
         return;
     }
-
     //parent.setAttribute("class", "rejected");
     // console.log(parent.className);
 }
 
-function buildtbody() {
-    tdata = importdata();
+function buildtbody(tdata) {
+    tbody.innerHTML = "";
     tbody.setAttribute("style", "text-align:center;");
     for (let i in tdata) {
         let row = document.createElement("tr");
@@ -119,5 +142,4 @@ function buildtbody() {
         tbody.appendChild(row);
     }
 }
-
 window.addEventListener("load", start, false);
