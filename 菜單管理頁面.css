@@ -10,6 +10,15 @@
     font-weight: bold;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+}
+
 .title_block {
     width: 100%;
     float: left;
@@ -67,8 +76,10 @@ input {
 
 .item_right {
     float: right;
-    overflow: auto;
     width: 55%;
+    overflow: auto;
+    height: 350px;
+    display: block;
 }
 
 .item_att {
@@ -139,8 +150,36 @@ label.info {
 
 .item_type_search {
     background-color: rgba(249, 156, 150);
-    width: 100%;
     border: 1px solid black;
     font-size: 105%;
     height: 32px;
+    width: 100%;
+    font-weight: bold;
+}
+
+.clickable {
+    color: rgba(46, 163, 229, 1.0);
+}
+
+.clickable:hover {
+    color: navy;
+    cursor: pointer;
+}
+
+.sandwich {
+    background-color: rgba(255, 255, 114, 0.8);
+}
+
+.dessert {
+    background-color: rgba(148, 220, 250, 0.8);
+}
+
+.drink {
+    background-color: rgba(184, 255, 78, 0.8);
+}
+
+.tbody {
+    width: 100%;
+    overflow: auto;
+    max-height: 200px;
 }
