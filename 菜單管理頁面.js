@@ -79,11 +79,11 @@ function start() {
     item_picture = document.getElementById("item_picture");
     item_price = document.getElementById("item_price");
     item_info = document.getElementById("item_info");
-    item_upload = document.getElementById("upload");
+    item_upload = document.getElementById("item_upload");
     item_upload.addEventListener("change", uploadFile, false);
     document.getElementById("item_add").addEventListener("click", item_add, false);
     buildthead(document.getElementById("thead"));
-    tbody = document.getElementById("tbody");
+    tbody = document.getElementById("item_tbody");
     buildtbody(item_ex);
 }
 

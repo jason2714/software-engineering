@@ -4,6 +4,12 @@
     height: auto;
 }
 
+.right {
+    float: right;
+    width: 45%;
+    height: auto;
+}
+
 .title {
     float: left;
     font-size: 200%;
@@ -74,11 +80,24 @@ input {
     width: 40%;
 }
 
+.combo_left {
+    float: left;
+    width: 42.5%;
+}
+
 .item_right {
     float: right;
     width: 55%;
     overflow: auto;
     height: 350px;
+    display: block;
+}
+
+.combo_right {
+    float: right;
+    width: 52.5%;
+    overflow: auto;
+    height: 150px;
     display: block;
 }
 
@@ -96,8 +115,15 @@ label {
     border: 1px solid black;
 }
 
-label.info {
+label.item_info {
     width: 100%;
+}
+
+label.combo_info {
+    writing-mode: vertical-lr;
+    width: 30px;
+    height: 84px;
+    float: left;
 }
 
 .att_type_str {
@@ -121,8 +147,16 @@ label.info {
     font-size: 105%;
 }
 
-.att_info_str {
+.item_info_str {
     width: 99%;
+    height: 80px;
+    border: 1px solid black;
+    font-size: 150%;
+    resize: none;
+}
+
+.combo_info_str {
+    width: calc(100% - 40px);
     height: 80px;
     border: 1px solid black;
     font-size: 150%;
@@ -138,7 +172,7 @@ label.info {
     cursor: pointer;
 }
 
-.item_add {
+.add_refresh {
     cursor: pointer;
     text-align: center;
     float: right;
@@ -146,6 +180,10 @@ label.info {
     border-radius: 4px;
     height: 30px;
     width: 45%;
+}
+
+.combo_add {
+    width: 20%;
 }
 
 .item_type_search {
@@ -182,4 +220,8 @@ label.info {
     width: 100%;
     overflow: auto;
     max-height: 200px;
+}
+
+.combo_item {
+    width: 99%;
 }
