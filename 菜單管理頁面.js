@@ -228,7 +228,7 @@ function item_add() {
 }
 
 function combo_add() {
-    if (!combo_price.value || !combo_name.value || !combo_upload_src || !combo_info.value) {
+    if (!combo_price.value || !combo_name.value || !combo_upload_src || !combo_info.value || !combo_items.innerHTML) {
         window.alert("資料填寫不完全");
         return;
     }
@@ -337,8 +337,9 @@ function comboRemove(ev) {
     buildComboBody(combo_ex);
 }
 
-function comboItemsRemove() {
-
+function comboItemsRemove(ev) {
+    let parent = ev.target.parentNode.parentNode;
+    parent.parentNode.removeChild(parent);
 }
 
 function buildItemHead(select) {
