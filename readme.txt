@@ -1,4 +1,7 @@
+## View at
+[Main Page](https://jason2714.github.io/software-engineering/%E4%B8%BB%E6%8E%A7%E5%8F%B0%E9%A0%81%E9%9D%A2)
 
+## PHP cmd
 $conn->addCombo("美式套餐",70,"./images/combo/美式套餐.jpg","漢堡,薯條","好吃");
 $conn->addCombo("內湖熱狗堡",90,"./images/combo/內湖熱狗堡.jpg","熱狗,熱狗,熱狗","金寶逼你食");
 $conn->addCombo("晨博套餐",69,"./images/combo/晨博套餐.jpg","熱狗,荷包蛋","陳柏霖大力推荐");
