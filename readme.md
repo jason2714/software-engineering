@@ -4,6 +4,6 @@
 
 ## Scratch and Wireframe
 <center>
-<img src="sshot-2.png" width="50%" alt="scratch"/>
-<img src="wireframe.png" width="50%" alt="wireframe"/>
+<img src="sshot-2.png" alt="scratch"/>
+<img src="wireframe.png" alt="wireframe"/>
 </center>
